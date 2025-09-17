@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CATEGORY 4 — Theatrical Techniques (Interactive)</title>
+<style>
+  :root{
+    /* Dark theme (default) */
+    --bg:#0b1224; --panel:#0f172a; --card:#111827; --ink:#e5e7eb; --muted:#a1a7b5; --border:#1f2a44; --accent:#22d3ee; --accent2:#a78bfa;
+  }
+  body.light{ /* Light theme */
+    --bg:#ffffff; --panel:#f8fafc; --card:#ffffff; --ink:#0b1224; --muted:#475569; --border:#e5e7eb; --accent:#0ea5e9; --accent2:#7c3aed;
+    background:#fff !important;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:linear-gradient(135deg,#0b1224 0%,#0f172a 60%,#0b1224 100%);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
+  header{position:sticky;top:0;z-index:50;background:var(--panel);border-bottom:1px solid var(--border);padding:14px 12px}
+  .bar{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;max-width:1200px;margin:0 auto}
+  .title{font-weight:800;font-size:clamp(18px,2.6vw,28px)}
+  .sub{color:var(--muted);font-size:14px}
+  .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:flex-end}
+  button,select,input[type="range"]{background:var(--card);color:var(--ink);border:1px solid var(--border);border-radius:12px;padding:8px 10px;font-size:14px}
+  button:hover,select:hover{border-color:#334155}
+  .grid{max-width:1200px;margin:12px auto;padding:0 12px 60px;display:grid;gap:12px}
+  details{background:linear-gradient(180deg,rgba(17,24,39,.92),rgba(11,18,36,.98));border:1px solid var(--border);border-radius:16px;overflow:hidden}
+  body.light details{background:#fff}
+  summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;align-items:center;gap:10px;color:#c7d2fe;font-weight:700;letter-spacing:.2px}
+  body.light summary{color:#1e293b}
+  summary::-webkit-details-marker{display:none}
+  .chev{width:10px;height:10px;border-right:2px solid #8da2fb;border-bottom:2px solid #8da2fb;transform:rotate(-45deg);transition:.2s}
+  body.light .chev{border-color:#64748b}
+  details[open] .chev{transform:rotate(45deg)}
+  .content{padding:0 16px 16px}
+  .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .pill{font-size:12px;border:1px solid var(--border);background:var(--card);color:var(--ink);padding:4px 8px;border-radius:999px}
+  .muted{color:var(--muted)}
+  .card{background:rgba(2,6,23,.4);border:1px solid var(--border);border-radius:14px;padding:12px}
+  body.light .card{background:#fff}
+  h3{margin:12px 0 4px}
+  h4{margin:10px 0 6px;color:#a5b4fc}
+  body.light h4{color:#374151}
+  ul{margin:6px 0 0 18px}
+  .activity{display:grid;gap:8px}
+  .badge{font-size:12px;padding:2px 8px;border-radius:999px;border:1px solid var(--border);display:inline-block}
+  .badge.u{color:#38bdf8;border-color:#1e293b}
+  .badge.e{color:#34d399;border-color:#1e293b}
+  .badge.j{color:#fbbf24;border-color:#1e293b}
+  .badge.s{color:#f472b6;border-color:#1e293b}
+  footer{position:fixed;left:0;right:0;bottom:0;background:transparent;color:var(--muted);text-align:center;padding:8px 12px}
+  @media print{ @page{size:A4;margin:12mm} body{background:#fff;color:#000} header,footer{display:none} details{background:#fff;border-color:#bbb} summary{color:#000} .content{color:#000} }
+</style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <div>
+        <div class="title">CATEGORY 4 — Theatrical Techniques</div>
+        <div class="sub">Smartboard‑ready interactive page • Click a section to expand • <span id="themeLabel">Dark mode</span></div>
+      </div>
+      <div class="controls">
+        <button id="themeToggle" title="Toggle light/dark">Toggle Light/Dark</button>
+        <button id="expandAll">Expand All</button>
+        <button id="collapseAll">Collapse All</button>
+        <label class="muted" for="size">Text size</label>
+        <input id="size" type="range" min="14" max="22" value="16" />
+        <button id="printBtn">Print</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="grid">
+
+    <details open>
+      <summary><span class="chev"></span>Framing Script</summary>
+      <div class="content">
+        <div class="card">“Drama dissolves barriers, includes all learners, and turns communication into a safe, shared experiment. It’s perfect for mixed‑ability classes and language learning.”</div>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Legend & Age Bands</summary>
+      <div class="content">
+        <div class="row">
+          <span class="badge u">U = All ages</span>
+          <span class="badge e">E = Elementary School</span>
+          <span class="badge j">J = Junior High School</span>
+          <span class="badge s">S = Senior High School</span>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Universal (All Ages)</summary>
+      <div class="content activity">
+
+        <div class="card">
+          <h4><span class="badge u">U</span> It’s anything but… (Prop it out)</h4>
+          <p>Use an object of a manageable size and tell students that they have to imagine that it is anything but what it is. Call one student and ask them to interact with it as if it were whatever they choose it to be. The rest of the class try to guess what the “new” object is.</p>
+        </div>
+
+        <div class="card">
+          <h4><span class="badge u">U</span> The Shape‑Shifting Chair</h4>
+          <p>Place a chair centre‑stage. Students, in turn, sit and interact with the chair according to its imagined type and location (throne, cinema seat in a horror movie, roller‑coaster, courtroom witness stand). They then give a line without revealing the chair type to help classmates guess.</p>
+        </div>
+
+        <div class="card">
+          <h4><span class="badge u">U</span> The Object of Creation</h4>
+          <p>Divide into groups of 4–6. Announce an object or animal. Groups create a frozen tableau to depict it (e.g., a camel with four students as legs/humps and a fifth as neck/head).</p>
+        </div>
+
+        <div class="card">
+          <h4><span class="badge u">U</span> Yes, And…!</h4>
+          <p>Demonstrate a simple opening line. Students create a conversation where every new line starts with “Yes, and…” and escalates the scene. Coach pace and acceptance; call “cut” at a strong moment, then debrief acceptance and collaboration.</p>
+          <ul>
+            <li>Opening: “The river is full of fish.” → “Yes, and one of them is enormous.” → …</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4><span class="badge u">U</span> Environments</h4>
+          <p>Lead player calls a place (e.g., the beach). Stage players silently create the environment in seconds—becoming objects, characters, weather, etc. Hold the freeze for group observation.</p>
+          <ul>
+            <li>Examples: beach, busy playground, school cafeteria, public library, grocery store.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4><span class="badge u">U</span> Lead with Different Parts of the Body</h4>
+          <p>Class walks in a circle. Prompt them to “lead” with different body parts (nose, chin, forehead, toes, knees, chest, stomach, pelvis, arms), returning to normal between prompts. Debrief sensations and character types that fit each lead.</p>
+        </div>
+
+        <div class="card">
+          <h4><span class="badge u">U</span> A Great Wind Blows</h4>
+          <p>Arrange chairs in a circle. Call: “A great wind blows for everyone who loves to sing.” Those to whom it applies change seats as one chair is removed; one player remains in the middle and leaves the game.</p>
+        </div>
+
+        <div class="card">
+          <h4><span class="badge u">U</span> Conscience Alley</h4>
+          <p>Create two facing lines; a character walks between them hearing whispered advice. At the end, the character makes an informed decision. Provide prompts to keep suggestions focused.</p>
+          <details><summary>Prompt bank (Conditionals) — opens list</summary>
+            <ul>
+              <li><strong>You did poorly at your test!</strong></li>
+              <li>What you should have done could be:</li>
+              <li>Study more carefully.</li>
+              <li>Not stay up late watching “Stranger Things.”</li>
+              <li>Pay attention in class.</li>
+              <li>Not talk to your desk-mate all the time.</li>
+              <li>Avoid daydreaming during the test.</li>
+              <li>Ask for clarification of difficult questions.</li>
+              <li>Copy from the guy sitting next to you. He knew nothing!</li>
+              <li>Ask your older brother to tutor you.</li>
+              <li>Start studying earlier in the week.</li>
+              <li>Not spend the whole evening texting with your friends.</li>
+              <li>Anything else you might think of!</li>
+            </ul>
+          </details>
+        </div>
+
+        <div class="card">
+          <h4><span class="badge u">U</span> Name and Action</h4>
+          <p>Circle naming game. Each student says their name with a matching action; class repeats. Harder version: cumulative memory round where each person repeats all previous names + actions before adding their own.</p>
+        </div>
+
+        <div class="card">
+          <h4><span class="badge u">U</span> Memory</h4>
+          <p>Show a tray of ~20 items (or flashcards with words) for one minute. Hide the tray; students list as many items as they recall. With young learners, take turns naming items aloud.</p>
+        </div>
+
+        <div class="card">
+          <h4><span class="badge u">U</span> Mine Field</h4>
+          <p>Set up obstacles (e.g., chairs, books). Blindfold one player at one end; guides at the other end call verbal instructions to navigate safely. Ideal for practising giving/understanding instructions.</p>
+        </div>
+
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Elementary (E)</summary>
+      <div class="content activity">
+        <div class="card">
+          <h4><span class="badge e">E</span> Yes, Let’s</h4>
+          <p>Players scatter. One student calls an activity; the group shouts “Yes, let’s!” and mimes it until a new call. Encourage equitable turns. Variation: play in a circle giving each student one turn.</p>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Junior & Senior High (J/S)</summary>
+      <div class="content activity">
+        <div class="card">
+          <h4><span class="badge j">J</span>/<span class="badge s">S</span> The Lie Detector Game (Two Truths and a Lie)</h4>
+          <p>In turn, each student shares three “facts”, one of which is a lie. Class guesses which is untrue. Encourage unusual but appropriate facts (travel, hobbies, encounters) for challenge and fun.</p>
+        </div>
+
+        <div class="card">
+          <h4><span class="badge j">J</span>/<span class="badge s">S</span> Get Into Character / Hot Seat</h4>
+          <p>One student in the “hot seat” takes a character and situation; the circle asks questions to build depth (feelings, choices, motives). Example: “You are Juliet the night before marrying Paris.”</p>
+        </div>
+
+        <div class="card">
+          <h4><span class="badge j">J</span>/<span class="badge s">S</span> Characterization in Literature</h4>
+          <p>Pairs: interviewer & interviewee (as a literary character). Aim for voice, mannerisms, attitudes. Present to class; invite unscripted questions.</p>
+          <p><em>Variation:</em> Write a monologue from a character’s perspective, adopting voice and style to reveal inner thoughts implied in the text.</p>
+        </div>
+
+        <div class="card">
+          <h4><span class="badge j">J</span>/<span class="badge s">S</span> Continuing Emotions</h4>
+          <p>Two players act a neutral scene (e.g., returning an item). Replay the scene with secret emotion prompts per player (e.g., customer fearful, clerk jubilant). Audience identifies emotions—great for practising adjectives.</p>
+          <ul>
+            <li><strong>Emotion examples:</strong> Fearful, Bored, Excited, Depressed, Anxious, Hysterical</li>
+            <li><strong>Situation examples:</strong> Doctor & patient; Teacher & student; Talk‑show host & celebrity; Mechanic & car owner; Detective & suspect</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4><span class="badge j">J</span>/<span class="badge s">S</span> Wink Murder</h4>
+          <p>Players sit in a circle; secretly select a “murderer.” Transform the space into a party: mingle and make small‑talk. If the murderer winks at you, wait ten seconds, then perform a dramatic “death.” Players can accuse—wrong guesses sit out.</p>
+        </div>
+
+        <div class="card">
+          <h4><span class="badge j">J</span>/<span class="badge s">S</span> Professions / Jobs / Character Traits</h4>
+          <p>Quick warm‑up that pairs well with <strong>Encounters (Role Play)</strong>. Stick a role on each student’s back. Students ask yes/no questions to discover the role, then improvise one line <em>in character</em>.</p>
+          <details><summary>How to run (quick)</summary>
+            <ol>
+              <li>Assign roles (use the full deck in <strong>Encounters (Role Play)</strong> below).</li>
+              <li>One question per turn; polite phrasing only.</li>
+              <li>When a student guesses, they join another student to improvise a 20‑second mini‑scene.</li>
+            </ol>
+          </details>
+          <p class="muted">The full <strong>Profession Cards</strong> deck is now located in the <strong>Encounters (Role Play)</strong> section.</p>
+        </div>
+
+        <div class="card">
+          <h4><span class="badge j">J</span>/<span class="badge s">S</span> The Good News and the Bad News</h4>
+          <p>Circle story‑build: each line starts with “The good news is…” or “The bad news is…”. The aim is to continue the story rather than cancel the previous contribution.</p>
+        </div>
+
+        <div class="card">
+          <h4><span class="badge j">J</span>/<span class="badge s">S</span> Conflicting Text</h4>
+          <p>Two students get a situation/relationship card but must interact using an irrelevant textbook dialogue. From tone and subtext, the class guesses the relationship.</p>
+          <details><summary>Situation Cards — opens list</summary>
+            <ul>
+              <li>You are two friends who have had a serious argument.</li>
+              <li>You are mother/father and son/daughter. The son/daughter tries to convince mother/father to let him/her stay out late.</li>
+              <li>You are a shy employee who is trying to ask his/her boss to let him leave work early today.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Senior High (S)</summary>
+      <div class="content activity">
+        <div class="card">
+          <h4><span class="badge s">S</span> Body Language Broadcast</h4>
+          <p>Students pose to show a feeling; classmates write physical descriptions and create a scenario explaining why. Example: “Hands on hips, eye‑roll, smirk…” → infer emotion; craft context.</p>
+        </div>
+        <div class="card">
+          <h4><span class="badge s">S</span> Divulging Dialogue</h4>
+          <p>Create character cards (brief bio + traits). Deal two to each student/group. Write a dialogue between the two characters that reveals feelings and suggests causes—without overtly stating them.</p>
+        </div>
+        <div class="card">
+          <h4><span class="badge s">S</span> Park Bench</h4>
+          <p>Three players, each a famous/known character, start a scene on a “park bench.” The goal is to deduce others’ identities via hints (no names). Once identified, a player exits dramatically and is replaced by a new player.</p>
+        </div>
+        <div class="card">
+          <h4><span class="badge s">S</span> Encounters (Role Play)</h4>
+          <p>Distribute <strong>profession/trait role cards</strong> to each student or pair. In groups, students reveal identities to teammates (not the audience) and script a short scene where identities are shown through <em>behaviour, vocabulary, and subtext</em>—not labels. Perform; the audience guesses each role.</p>
+          <details open><summary>Profession Cards — full set</summary>
+            <ul style="columns:3;column-gap:24px">
+              <li>Lion‑tamer</li>
+              <li>Top model</li>
+              <li>Brain surgeon</li>
+              <li>Astronaut</li>
+              <li>Actor/Actress</li>
+              <li>Dentist</li>
+              <li>Bodyguard</li>
+              <li>Trapeze artist</li>
+              <li>Monk/Nun</li>
+              <li>Beautician</li>
+              <li>Tennis player</li>
+              <li>Funeral director</li>
+              <li>Magician</li>
+              <li>Clown</li>
+              <li>English teacher</li>
+              <li>Giant</li>
+              <li>Gardener</li>
+              <li>Drug dealer</li>
+              <li>Mortician</li>
+              <li>Singer</li>
+              <li>Bouncer</li>
+              <li>Serial killer</li>
+              <li>Master chef</li>
+              <li>Nanny</li>
+              <li>Priest/Priestess</li>
+              <li>Prince/Princess</li>
+              <li>Astronomer</li>
+              <li>Author</li>
+              <li>Butcher</li>
+              <li>Florist</li>
+              <li>Doctor</li>
+              <li>Designer</li>
+              <li>Farmer</li>
+              <li>Fire fighter</li>
+              <li>Lawyer</li>
+              <li>Hairdresser</li>
+              <li>Baker</li>
+              <li>Judge</li>
+              <li>Mechanic</li>
+              <li>Lifeguard</li>
+              <li>Painter</li>
+              <li>Soldier</li>
+              <li>Waiter/Waitress</li>
+              <li>Vet</li>
+              <li>Taxi driver</li>
+              <li>Shop assistant</li>
+              <li>Police officer</li>
+              <li>Plumber</li>
+            </ul>
+          </details>
+          <h4>Steps</h4>
+          <ol>
+            <li>Deal one role card per student/pair. Students may add 2–3 <em>role vocabulary</em> items.</li>
+            <li>Groups storyboard a 60–90 second scene where roles are revealed indirectly.</li>
+            <li>Perform; audience notes clues and guesses roles.</li>
+            <li>Debrief: Which words, gestures, or props were the best clues?</li>
+          </ol>
+          <h4>Language targets</h4>
+          <ul>
+            <li>Inferring from context; functional language (requests, offers, obligations)</li>
+            <li>Pronunciation (intonation for attitude); lexical sets by profession</li>
+          </ul>
+          <p class="muted">Adjust or remove any roles that don’t fit your school context or safeguarding policy.</p>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Bibliography</summary>
+      <div class="content">
+        <div class="card">
+          <ul>
+            <li>Αυδή, Α., Χατζηγεωργίου, Μ. (2007) Η τέχνη του δράματος στην εκπαίδευση. Αθήνα: Μεταίχμιο.</li>
+            <li>Παπαθανασίου, Α., Μπασλαβάνη, Ο. (2001) Θεατροπαιχνίδια. Αθήνα: Κέδρος.</li>
+            <li>Erion, P. (1996). Drama in the Classroom: Creative Activities for Teachers, Parents & Friends. Lost Coast Press.</li>
+            <li>Fulford, J., Hutchings, M., Ross, A. & Schmitz, H. (1990) Bright ideas: Drama. Warwickshire: Scholastic.</li>
+            <li>Hendy, L. & Toon, L. (2001) Supporting Drama and Imaginative Play in the Early Years. Open University Press.</li>
+            <li>Keller, B. (1988). Improvisations in Creative Drama. Meriwether Publishing.</li>
+            <li>Neelands, J. (2002) Making Sense of Drama. Heinemann.</li>
+            <li>Peterson, L. & O’Connor, D. (1997). Kids Take the Stage. Backstage Books.</li>
+            <li>Pomer, J. (2001). Perpetual Motion: Creative Movement Exercises. Human Kinetics.</li>
+            <li>Readman, G. & Lanont, G. (…). Drama: A handbook for primary teachers. BBC.</li>
+            <li>Spolin, V. (1983). Improvisation for the Theatre. Northwestern University Press.</li>
+            <li>Spolin, V. (1986). Theatre Games for the Classroom. Northwestern University Press.</li>
+            <li>Winston, J. & Tandy, M. (2001). Beginning drama 4‑11. David Fulton.</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+  </main>
+
+  <footer>✨✍️ Created by Panagiotis Domvros, English and Drama Teacher, All Rights Reserved ✍️✨</footer>
+
+<script>
+  // Theme toggle with persistence
+  const themeToggle = document.getElementById('themeToggle');
+  const themeLabel = document.getElementById('themeLabel');
+  const savedTheme = localStorage.getItem('theme4') || 'dark';
+  if(savedTheme === 'light'){
+    document.body.classList.add('light');
+    themeLabel.textContent = 'Light mode';
+  }
+  themeToggle.addEventListener('click',()=>{
+    document.body.classList.toggle('light');
+    const isLight = document.body.classList.contains('light');
+    localStorage.setItem('theme4', isLight ? 'light' : 'dark');
+    themeLabel.textContent = isLight ? 'Light mode' : 'Dark mode';
+  });
+
+  // Expand/Collapse all
+  const expandAllBtn = document.getElementById('expandAll');
+  const collapseAllBtn = document.getElementById('collapseAll');
+  const sections = [...document.querySelectorAll('details')];
+  expandAllBtn.addEventListener('click',()=>sections.forEach(d=>d.open=true));
+  collapseAllBtn.addEventListener('click',()=>sections.forEach(d=>d.open=false));
+
+  // Text size slider
+  const size = document.getElementById('size');
+  size.addEventListener('input', e => {
+    document.documentElement.style.fontSize = e.target.value + 'px';
+  });
+
+  // Print opens all first
+  const printBtn = document.getElementById('printBtn');
+  function openAll(){ sections.forEach(d=>d.open=true); }
+  printBtn.addEventListener('click',()=>{ openAll(); setTimeout(()=>window.print(), 80); });
+  window.onbeforeprint = openAll;
+</script>
+</body>
+</html>

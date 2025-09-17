@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CATEGORY 1 — Organisation of Teaching & Lesson Planning (Interactive)</title>
+<style>
+  :root{ --bg:#0b1224; --panel:#0f172a; --card:#111827; --ink:#e5e7eb; --muted:#a1a7b5; --border:#1f2a44; --accent:#22d3ee; --accent2:#a78bfa }
+  body.light{ --bg:#ffffff; --panel:#f8fafc; --card:#ffffff; --ink:#0b1224; --muted:#475569; --border:#e5e7eb; --accent:#0ea5e9; --accent2:#7c3aed; background:#fff !important }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:linear-gradient(135deg,#0b1224 0%,#0f172a 60%,#0b1224 100%);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
+  header{position:sticky;top:0;z-index:50;background:var(--panel);border-bottom:1px solid var(--border);padding:14px 12px}
+  .bar{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;max-width:1200px;margin:0 auto}
+  .title{font-weight:800;font-size:clamp(18px,2.6vw,28px)}
+  .sub{color:var(--muted);font-size:14px}
+  .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:flex-end}
+  button,input[type="range"]{background:var(--card);color:var(--ink);border:1px solid var(--border);border-radius:12px;padding:8px 10px;font-size:14px}
+  .grid{max-width:1200px;margin:12px auto 0;padding:0 12px 120px;display:grid;gap:12px}
+  details{background:linear-gradient(180deg,rgba(17,24,39,.92),rgba(11,18,36,.98));border:1px solid var(--border);border-radius:16px;overflow:hidden}
+  body.light details{background:#fff}
+  summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;align-items:center;gap:10px;color:#c7d2fe;font-weight:700}
+  body.light summary{color:#1e293b}
+  summary::-webkit-details-marker{display:none}
+  .chev{width:10px;height:10px;border-right:2px solid #8da2fb;border-bottom:2px solid #8da2fb;transform:rotate(-45deg);transition:.2s}
+  body.light .chev{border-color:#64748b}
+  details[open] .chev{transform:rotate(45deg)}
+  .content{padding:0 16px 16px}
+  .card{background:rgba(2,6,23,.4);border:1px solid var(--border);border-radius:14px;padding:12px}
+  body.light .card{background:#fff}
+  h4{margin:10px 0 6px;color:#a5b4fc}
+  body.light h4{color:#374151}
+  ul{margin:6px 0 0 18px}
+  .pill{font-size:12px;border:1px solid var(--border);background:var(--card);color:var(--ink);padding:2px 8px;border-radius:999px}
+  footer{position:fixed;left:0;right:0;bottom:0;background:transparent;color:var(--muted);text-align:center;padding:8px 12px}
+  @media print{ @page{size:A4;margin:12mm} body{background:#fff;color:#000} header,footer{display:none} details{background:#fff;border-color:#bbb} summary{color:#000} .content{color:#000} }
+</style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <div>
+        <div class="title">CATEGORY 1 — Organisation of Teaching & Lesson Planning. Motivation – Variety in Lesson Design</div>
+        <div class="sub">Smartboard‑ready interactive page • Click to expand • <span id="themeLabel">Dark mode</span></div>
+      </div>
+      <div class="controls">
+        <button id="themeToggle" title="Toggle light/dark">Toggle Light/Dark</button>
+        <button id="expandAll">Expand All</button>
+        <button id="collapseAll">Collapse All</button>
+        <label class="muted" for="size">Text size</label>
+        <input id="size" type="range" min="14" max="22" value="16" />
+        <button id="printBtn">Print</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="grid">
+
+    <details open>
+      <summary><span class="chev"></span>Opening Script</summary>
+      <div class="content">
+        <div class="card">“Many of the greatest teachers won’t win awards or fame. Their quiet, daily work changes lives. There’s no single ‘best’ teaching style; what matters is that our students feel valued and accepted in our rooms.”</div>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Activity A1 — Two-Word Check-In (3′)</summary>
+      <div class="content">
+        <div class="card">
+          <ul>
+            
+            <li>“I’ll start. I’m [Name]; my two words about teaching today are ‘energised’ and ‘curious.’”</li>
+            <li>“Your turn: name + two words about how you feel in your work right now.”</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Activity A2 — The Quiet Impact (2′)</summary>
+      <div class="content">
+        <div class="card">
+          <ul>
+            
+            <li>“Close your eyes for one minute. Recall a teacher who had a quiet, profound impact on you—focus on how they made you feel.”</li>
+            <li>“Open your eyes. That feeling is why we’re here.”</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Activity A3 — One Word, One Story (5′)</summary>
+      <div class="content">
+        <div class="card">
+          <ul>
+            <li>“Write one word capturing a recent classroom victory—big or small.”</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Activity A4 — The Student I Have (5′)</summary>
+      <div class="content">
+        <div class="card">
+          <ul>
+            <li>“Think of one current student (no names). Identify one strength and one challenge.”</li>
+            <li>“In pairs: 3 minutes to propose a strategy that leverages the strength.”</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Module 2 — Lesson Organisation & Planning (30′)</summary>
+      <div class="content">
+        <div class="card">
+          <h4>Framing Script</h4>
+          <ul>
+            <li>“Treat your lesson plan as a game plan—clear outcomes, flexible execution.”</li>
+            <li>“Think composer–conductor: heavy creative prep in advance; in the room, you conduct and adapt.”</li>
+            <li>“Real learning is messy: expect tension, confusion, productive discomfort.”</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Activity A5 — Curveball Scenario (7′) SPANNER IN THE WORKS</summary>
+      <div class="content">
+        <div class="card">
+          <ul>
+            <li>“Your objective: students practise descriptive adjectives. Here’s your curveball.”</li>
+            <li>“You have 3 minutes to adjust your plan. Go.”</li>
+            <li>Share 1–2 pivots per group.</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Activity A6 — The 5-Minute Takeover (8′) Student Handout 5-Minute Takeover Activities</summary>
+      <div class="content">
+        <div class="card">
+          <ul>
+            <li>“Design a 5-minute activity on prepositions of place that a student can lead.”</li>
+            <li>Share 2–3 ideas.</li>
+          </ul>
+          <ul>
+            <li><strong>Variations:</strong> “Walk-and-write,” quick game, peer-instruction mini-demo. (Walk-and-Write Variation (5-Minute Takeover))</li>
+            <li>Walk-and-Write Challenge (Student led)</li>
+          </ul>
+          <ul>
+            <li><strong>Troubleshooting:</strong> If groups stall, suggest a simple gallery walk or ‘teach-back’.</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+  </main>
+
+  <footer>✨✍️ Created by Panagiotis Domvros, English and Drama Teacher, All Rights Reserved ✍️✨</footer>
+
+<script>
+  // Theme toggle with persistence
+  const themeToggle = document.getElementById('themeToggle');
+  const themeLabel = document.getElementById('themeLabel');
+  const savedTheme = localStorage.getItem('theme1') || 'dark';
+  if(savedTheme === 'light'){
+    document.body.classList.add('light');
+    themeLabel.textContent = 'Light mode';
+  }
+  themeToggle.addEventListener('click',()=>{
+    document.body.classList.toggle('light');
+    const isLight = document.body.classList.contains('light');
+    localStorage.setItem('theme1', isLight ? 'light' : 'dark');
+    themeLabel.textContent = isLight ? 'Light mode' : 'Dark mode';
+  });
+
+  // Expand/Collapse all
+  const expandAllBtn = document.getElementById('expandAll');
+  const collapseAllBtn = document.getElementById('collapseAll');
+  const sections = [...document.querySelectorAll('details')];
+  expandAllBtn.addEventListener('click',()=>sections.forEach(d=>d.open=true));
+  collapseAllBtn.addEventListener('click',()=>sections.forEach(d=>d.open=false));
+
+  // Text size slider
+  const size = document.getElementById('size');
+  size.addEventListener('input', e => {
+    document.documentElement.style.fontSize = e.target.value + 'px';
+  });
+
+  // Print opens all first
+  const printBtn = document.getElementById('printBtn');
+  function openAll(){ sections.forEach(d=>d.open=true); }
+  printBtn.addEventListener('click',()=>{ openAll(); setTimeout(()=>window.print(), 80); });
+  window.onbeforeprint = openAll;
+</script>
+</body>
+</html>

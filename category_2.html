@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CATEGORY 2 — Dealing with “Difficult” Students (Interactive)</title>
+<style>
+  :root{
+    /* Dark theme (default) */
+    --bg:#0b1224; --panel:#0f172a; --card:#111827; --ink:#e5e7eb; --muted:#a1a7b5; --border:#1f2a44; --accent:#22d3ee; --accent2:#a78bfa; --good:#22c55e; --warn:#f59e0b; --danger:#f43f5e;
+  }
+  body.light{
+    /* Light theme overrides */
+    --bg:#ffffff; --panel:#f8fafc; --card:#ffffff; --ink:#0b1224; --muted:#475569; --border:#e5e7eb; --accent:#0ea5e9; --accent2:#7c3aed;
+    background:#fff !important;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:linear-gradient(135deg,#0b1224 0%,#0f172a 60%,#0b1224 100%);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
+  header{position:sticky;top:0;z-index:50;background:var(--panel);border-bottom:1px solid var(--border);padding:14px 12px}
+  .bar{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;max-width:1200px;margin:0 auto}
+  .title{font-weight:800;font-size:clamp(18px,2.6vw,28px)}
+  .sub{color:var(--muted);font-size:14px}
+  .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:flex-end}
+  button,select,input[type="range"]{background:var(--card);color:var(--ink);border:1px solid var(--border);border-radius:12px;padding:8px 10px;font-size:14px}
+  button:hover,select:hover{border-color:#334155}
+  .grid{max-width:1200px;margin:12px auto;padding:0 12px 60px;display:grid;gap:12px}
+
+  /* Section cards */
+  details{background:linear-gradient(180deg,rgba(17,24,39,.92),rgba(11,18,36,.98));border:1px solid var(--border);border-radius:16px;overflow:hidden}
+  body.light details{background:#fff}
+  summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;align-items:center;gap:10px;color:#c7d2fe;font-weight:700;letter-spacing:.2px}
+  body.light summary{color:#1e293b}
+  summary::-webkit-details-marker{display:none}
+  .chev{width:10px;height:10px;border-right:2px solid #8da2fb;border-bottom:2px solid #8da2fb;transform:rotate(-45deg);transition:.2s}
+  body.light .chev{border-color:#64748b}
+  details[open] .chev{transform:rotate(45deg)}
+  .content{padding:0 16px 16px}
+  .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .pill{font-size:12px;border:1px solid var(--border);background:var(--card);color:var(--ink);padding:4px 8px;border-radius:999px}
+  .muted{color:var(--muted)}
+  .card{background:rgba(2,6,23,.4);border:1px solid var(--border);border-radius:14px;padding:12px}
+  body.light .card{background:#fff}
+  h3{margin:12px 0 4px}
+  h4{margin:10px 0 6px;color:#a5b4fc}
+  body.light h4{color:#374151}
+  ul{margin:6px 0 0 18px}
+  code.kbd{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;border:1px solid var(--border);background:var(--card);padding:2px 6px;border-radius:6px;color:#a5b4fc}
+  body.light code.kbd{color:#334155}
+  .gr{color:#d1fae5}
+  body.light .gr{color:#065f46}
+  .copy{border:1px dashed #334155;padding:8px;border-radius:10px;margin-top:8px;display:flex;justify-content:space-between;gap:8px}
+  .copy button{padding:6px 10px}
+
+  textarea.draft{width:100%;min-height:120px;padding:10px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--ink)}
+
+  footer{position:fixed;left:0;right:0;bottom:0;background:transparent;color:var(--muted);text-align:center;padding:8px 12px}
+
+  /* Print */
+  @media print{
+    @page{size:A4;margin:12mm}
+    body{background:#fff;color:#000}
+    header,footer{display:none}
+    details{background:#fff;border-color:#bbb}
+    summary{color:#000}
+    .content{color:#000}
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <div>
+        <div class="title">CATEGORY 2 — Dealing with “Difficult” Students</div>
+        <div class="sub">Smartboard-ready interactive page • Click a section to expand • Use <code class="kbd">Expand All</code> • <span id="themeLabel">Dark mode</span></div>
+      </div>
+      <div class="controls">
+        <button id="themeToggle" title="Toggle light/dark">Toggle Light/Dark</button>
+        <button id="expandAll">Expand All</button>
+        <button id="collapseAll">Collapse All</button>
+        <label class="muted" for="size">Text size</label>
+        <input id="size" type="range" min="14" max="22" value="16" />
+        <button id="printBtn">Print</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="grid">
+
+    <details open>
+      <summary><span class="chev"></span>Framing Script</summary>
+      <div class="content">
+        <div class="card">“Behind every behaviour is a reason—even if we can’t see it. Our job is to de‑escalate first, then problem‑solve. If I change me, I change the climate.”</div>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Activity B1 — Co‑Creating the Adult Script</summary>
+      <div class="content">
+        <div class="row">
+          <div class="pill">Objective</div>
+          <div>Set respectful norms from day one.</div>
+        </div>
+        <div class="row" style="margin-top:6px">
+          <div class="pill">Steps</div>
+          <div>Pairs draft a 1–2 sentence opener for the “Treat you like adults” talk → Share a few → Refine for clarity and respect. <span class="muted">Debrief: Make expectations explicit; the adult move is to return to focus quickly and respectfully.</span></div>
+        </div>
+        <div class="card">
+          <h4>Model Scripts</h4>
+          <p><strong>Younger teens (11–13):</strong> “In this class, I will always treat you with respect — like young adults. Sometimes we all lose focus or get distracted. That’s normal. The grown‑up move is to come back quickly and kindly so we can keep learning together.”</p>
+          <p><strong>Older teens (15–18):</strong> “In this class, I will treat you as adults: with trust, respect, and high expectations. Adults sometimes slip, but the mature choice is to reset quickly and move forward. If we all do that, we’ll have the freedom to learn in a way that really prepares us for what comes next.”</p>
+          <div class="copy"><span class="muted">Copy models</span><button data-copy="In this class, I will always treat you with respect — like young adults...">Copy</button></div>
+        </div>
+        <div class="card">
+          <h4>Your Turn — Draft your Adult Script</h4>
+          <textarea class="draft" placeholder="Write 1–2 sentences you can reuse all year."></textarea>
+          <div style="margin-top:8px;display:flex;gap:8px">
+            <button class="saveDraft">Copy Draft</button>
+            <button class="clearDraft">Clear</button>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details id="b2" data-open-url="https://domvrosepimorfosi.github.io/EmpathyMapping/">
+      <summary><span class="chev"></span>Activity B2 — Empathy Mapping <span class="pill" aria-hidden="true" title="Opens in new tab">↗ opens tool</span></summary>
+      <div class="content">
+        <div class="row">
+          <div class="pill">Objective</div>
+          <div>Look beneath the surface before intervening.</div>
+        </div>
+        <div class="row" style="margin-top:6px">
+          <div class="pill">Materials</div>
+          <div>Five‑quadrant chart: Thinks • Feels • Says • Does • Needs.</div>
+        </div>
+        <div class="row" style="margin-top:6px">
+          <div class="pill">Steps</div>
+          <div>Scenario: “Student with head down refuses work.” → Groups fill quadrants → Share highlights. <span class="muted">Debrief: Empathy precedes intervention.</span></div>
+        </div>
+        <div class="card">
+          <h4>Launch Mini Empathy‑Map (inline)</h4>
+          <div id="emap" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+            <div class="card"><h4>Thinks</h4><ul id="eTh"></ul></div>
+            <div class="card"><h4>Feels</h4><ul id="eFe"></ul></div>
+            <div class="card"><h4>Says</h4><ul id="eSa"></ul></div>
+            <div class="card"><h4>Does</h4><ul id="eDo"></ul></div>
+            <div class="card" style="grid-column:1/-1"><h4>Needs</h4><ul id="eNe"></ul></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Activity B3 — Water or Gasoline? Role‑Play</summary>
+      <div class="content">
+        <div class="row">
+          <div class="pill">Objective</div>
+          <div>Practise de‑escalation by contrasting heat‑adding vs heat‑reducing lines.</div>
+        </div>
+        <div class="row" style="margin-top:6px">
+          <div class="pill">Run</div>
+          <div>A = student (“This is stupid.”), B = teacher → Round 1: Gasoline → Reset → Round 2: Water → Switch roles. <span class="muted">Debrief: Emotions shift fast—aim to defuse.</span></div>
+        </div>
+        <div class="card">
+          <h4>Example Bank (Greece‑ready, phone ban compliant)</h4>
+          <details><summary>1) Refusal / Task Avoidance</summary>
+            <ul>
+              <li><strong>Student:</strong> “This is stupid.”</li>
+              <li><strong>Gasoline:</strong> “If you don’t like it, leave.”</li>
+              <li><strong>Water:</strong> “Sounds frustrating. What’s one small change to help you start—time, partner, or question number?”</li>
+            </ul>
+          </details>
+          <details><summary>2) Flat Refusal</summary>
+            <ul>
+              <li><strong>Student:</strong> “I’m not doing it.”</li>
+              <li><strong>Gasoline:</strong> “Yes you are. Now.”</li>
+              <li><strong>Water:</strong> “Help me see the block—instructions, time, or something else? Start with Q1 together or take 2 minutes and try?”</li>
+            </ul>
+          </details>
+          <details><summary>3) Head Down, Silent</summary>
+            <ul>
+              <li><strong>Student:</strong> (head on desk)</li>
+              <li><strong>Gasoline:</strong> “Up. Now.”</li>
+              <li><strong>Water:</strong> (quietly) “You look worn out. First one together, or a 2‑minute pause then try?”</li>
+            </ul>
+          </details>
+          <details><summary>4) Phone Visible (ban in force)</summary>
+            <ul>
+              <li><strong>Student:</strong> (phone on desk) “I’m just checking.”</li>
+              <li><strong>Gasoline:</strong> “Give me the phone.”</li>
+              <li><strong>Water:</strong> “Phones must be off and away by law and school policy. Put it in your bag now. If it reappears, we follow the hand‑in procedure.”</li>
+            </ul>
+          </details>
+          <details><summary>5) “It’s an Emergency” (still banned)</summary>
+            <ul>
+              <li><strong>Student:</strong> “It’s important.”</li>
+              <li><strong>Gasoline:</strong> “Nothing is more important than my class.”</li>
+              <li><strong>Water:</strong> “I hear you. Law and school rules require phones off and away. Put it in your bag now—talk to me after class so we can involve the office if needed.”</li>
+            </ul>
+          </details>
+          <details><summary>6) Smartwatch Notifications</summary>
+            <ul>
+              <li><strong>Student:</strong> (tapping watch) “It’s just my watch.”</li>
+              <li><strong>Gasoline:</strong> “Take it off now.”</li>
+              <li><strong>Water:</strong> “Devices must be silent and out of sight. Slide the sleeve over it or place it in your bag. Thanks.”</li>
+            </ul>
+          </details>
+          <details><summary>7) Filming/Recording (not allowed)</summary>
+            <ul>
+              <li><strong>Student:</strong> (recording)</li>
+              <li><strong>Gasoline:</strong> “Are you kidding me? Delete that now.”</li>
+              <li><strong>Water:</strong> “Recording isn’t allowed. Stop, put the device away. We’ll log this with the office after the lesson.”</li>
+            </ul>
+          </details>
+          <details><summary>8) Side‑Talk</summary>
+            <ul>
+              <li><strong>Student:</strong> (whispering/laughing)</li>
+              <li><strong>Gasoline:</strong> “Stop talking or get out.”</li>
+              <li><strong>Water:</strong> (nearby, low voice) “Save it for 2 minutes—then you’re first to share. Deal?”</li>
+            </ul>
+          </details>
+          <details><summary>9) “We’re Talking About the Work!”</summary>
+            <ul>
+              <li><strong>Student:</strong> “We’re discussing the task!”</li>
+              <li><strong>Gasoline:</strong> “No, you’re not.”</li>
+              <li><strong>Water:</strong> “Great—put one sentence on paper so I can see it. I’ll check in 60 seconds.”</li>
+            </ul>
+          </details>
+          <details><summary>10) Back‑chat / Defiance</summary>
+            <ul>
+              <li><strong>Student:</strong> “You can’t make me.”</li>
+              <li><strong>Gasoline:</strong> “Watch me.”</li>
+              <li><strong>Water:</strong> “You don’t want to. Two ways forward: start 60 seconds with me, or start alone and I’ll check. Which gets you done faster?”</li>
+            </ul>
+          </details>
+          <details><summary>11) Eye‑Roll / “Whatever”</summary>
+            <ul>
+              <li><strong>Student:</strong> “Whatever.”</li>
+              <li><strong>Gasoline:</strong> “Don’t roll your eyes at me.”</li>
+              <li><strong>Water:</strong> (ignore roll) “Start number 2. I’ll be back in 90 seconds to see your first line.”</li>
+            </ul>
+          </details>
+          <details><summary>12) Finished Early / Boasting</summary>
+            <ul>
+              <li><strong>Student:</strong> “I’m done. Too easy.”</li>
+              <li><strong>Gasoline:</strong> “Then stop showing off.”</li>
+              <li><strong>Water:</strong> “Nice—grab a challenge card and upgrade two sentences with stronger adjectives.”</li>
+            </ul>
+          </details>
+          <details><summary>13) “I’m Lost”</summary>
+            <ul>
+              <li><strong>Student:</strong> “I don’t get it.”</li>
+              <li><strong>Gasoline:</strong> “We already covered this.”</li>
+              <li><strong>Water:</strong> “Thanks for telling me. Point to the exact step—let’s model just that part.”</li>
+            </ul>
+          </details>
+          <details><summary>14) Won’t Join Group</summary>
+            <ul>
+              <li><strong>Student:</strong> “I don’t want to work with them.”</li>
+              <li><strong>Gasoline:</strong> “Too bad.”</li>
+              <li><strong>Water:</strong> “Pick a role that suits you: timer, scribe, or coach. Which works today?”</li>
+            </ul>
+          </details>
+          <details><summary>15) “They Don’t Listen to Me”</summary>
+            <ul>
+              <li><strong>Student:</strong> “No one listens.”</li>
+              <li><strong>Gasoline:</strong> “Speak louder then.”</li>
+              <li><strong>Water:</strong> “We’ll do one‑turn each: 20 seconds per person. You’re second—I’ll time it.”</li>
+            </ul>
+          </details>
+          <details><summary>16) Late to Class</summary>
+            <ul>
+              <li><strong>Student:</strong> “It’s only 10 minutes.”</li>
+              <li><strong>Gasoline:</strong> “Unacceptable.”</li>
+              <li><strong>Water:</strong> “Grab the starter from the side table. I’ll check once you’ve got the first line.”</li>
+            </ul>
+          </details>
+          <details><summary>17) Missing Materials</summary>
+            <ul>
+              <li><strong>Student:</strong> “I forgot my book.”</li>
+              <li><strong>Gasoline:</strong> “Of course you did.”</li>
+              <li><strong>Water:</strong> “Take a spare from the bin. Add your name on a sticky so it stays with you.”</li>
+            </ul>
+          </details>
+          <details><summary>18) Inappropriate Joke</summary>
+            <ul>
+              <li><strong>Student:</strong> (joke during instructions)</li>
+              <li><strong>Gasoline:</strong> “Grow up.”</li>
+              <li><strong>Water:</strong> (half‑smile) “Park it. You get 20 seconds at the end to share the funny version.”</li>
+            </ul>
+          </details>
+          <details><summary>19) Attempted Phone Lookup (ban)</summary>
+            <ul>
+              <li><strong>Student:</strong> (sneaks phone to look up answers)</li>
+              <li><strong>Gasoline:</strong> “You’re cheating!”</li>
+              <li><strong>Water:</strong> “Phones are banned—away now. I want your thinking on Q3—talk me through your approach.”</li>
+            </ul>
+          </details>
+          <details><summary>20) Presentation Freeze / Anxiety</summary>
+            <ul>
+              <li><strong>Student:</strong> “I can’t do this.”</li>
+              <li><strong>Gasoline:</strong> “Yes you can. Go.”</li>
+              <li><strong>Water:</strong> “Okay—start the first two lines seated, then stand for the last one. Nod when ready, I’ll time you.”</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Activity B4 — Flip the Script</summary>
+      <div class="content">
+        <div class="row"><div class="pill">Objective</div><div>Turn directives into questions to invite collaboration and preserve face.</div></div>
+        <div class="card">
+          <h4>Convert together</h4>
+          <ul>
+            <li>“Put your phone away.” → “Where should your phone be so you can focus?”</li>
+            <li>“Start the assignment.” → “Which question will you start with?”</li>
+            <li>“Stop talking.” → “Where would you like to sit to get this done?”</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Activity B5 — The 5 Metacognition Questions</summary>
+      <div class="content">
+        <div class="row"><div class="pill">Objective</div><div>Move from impulse to reflection (B1 English).</div></div>
+        <div class="card">
+          <h4>Core 5 (B1 wording)</h4>
+          <ul>
+            <li>Why did you think this was okay?</li>
+            <li>Who in your life thinks this is okay?</li>
+            <li>Where did you learn this?</li>
+            <li>How can you help fix this now?</li>
+            <li>What will you do next time?</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Extended Prompt Bank</h4>
+          <ul>
+            <li>Are you ready to think, or do you need 1 minute?</li>
+            <li>What happened just before this?</li>
+            <li>How did you feel? (angry / sad / bored / stressed / worried / tired)</li>
+            <li>Which part is your responsibility?</li>
+            <li>Tell me two other choices you could make next time.</li>
+            <li>If I feel ___, then I will ___.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Mini worksheet (half page)</h4>
+          <p>Name / Date — What happened (1 sentence) — Feeling — Who was affected & how — Repair today (1 action) — If–Then plan — Check time</p>
+          <div class="copy"><span class="muted">Copy worksheet text</span><button data-copy="Name / Date:____ | What happened:____ | Feeling: angry/sad/bored/stressed/worried/tired | Who was affected & how:____ | Repair today:____ | If–Then: If I____ then I will____ | Check time: end of lesson / tomorrow">Copy</button></div>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Activity B6 — The 30‑Second Rule Sort</summary>
+      <div class="content">
+        <div class="row"><div class="pill">Objective</div><div>Build a culture of kindness.</div></div>
+        <div class="row" style="margin-top:6px"><div class="pill">Rule</div><div>“If they can’t change it in 30 seconds, don’t mention it.”</div></div>
+        <div class="card">
+          <h4>Sort cards (examples)</h4>
+          <details><summary>Okay to Say</summary><ul>
+            <li>“Thank you for letting me speak.”</li>
+            <li>“Can I help you with that step?”</li>
+            <li>“I liked your example about travel.”</li>
+          </ul></details>
+          <details><summary>Not Okay</summary><ul>
+            <li>“Your face is full of spots.”</li>
+            <li>“Your accent is weird.”</li>
+            <li>“Your shoes are ugly.”</li>
+          </ul></details>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span>Quick Tools</summary>
+      <div class="content">
+        <div class="card">
+          <ul>
+            <li><strong>Foam basketball reset:</strong> bounce 3 times; toss to attentive students.</li>
+            <li><strong>Break Card:</strong> class‑wide 2‑minute reset; timer on board; all work paused; return ready.</li>
+            <li><strong>Pause Moment:</strong> Stop → Reset → Address → Begin again.</li>
+            <li><strong>7 Words:</strong> “I love having you in my class.”</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+  </main>
+
+  <footer>✨✍️ Created by Panagiotis Domvros, English and Drama Teacher, All Rights Reserved ✍️✨</footer>
+
+<script>
+  // Theme toggle with persistence
+  const themeToggle = document.getElementById('themeToggle');
+  const themeLabel = document.getElementById('themeLabel');
+  const savedTheme = localStorage.getItem('theme2') || 'dark';
+  if(savedTheme === 'light'){
+    document.body.classList.add('light');
+    themeLabel.textContent = 'Light mode';
+  }
+  themeToggle.addEventListener('click',()=>{
+    document.body.classList.toggle('light');
+    const isLight = document.body.classList.contains('light');
+    localStorage.setItem('theme2', isLight ? 'light' : 'dark');
+    themeLabel.textContent = isLight ? 'Light mode' : 'Dark mode';
+  });
+
+  // Expand/Collapse all
+  const expandAllBtn = document.getElementById('expandAll');
+  const collapseAllBtn = document.getElementById('collapseAll');
+  const sections = [...document.querySelectorAll('details')];
+  expandAllBtn.addEventListener('click',()=>sections.forEach(d=>d.open=true));
+  collapseAllBtn.addEventListener('click',()=>sections.forEach(d=>d.open=false));
+
+  // Text size slider
+  const size = document.getElementById('size');
+  size.addEventListener('input', e => {
+    document.documentElement.style.fontSize = e.target.value + 'px';
+  });
+
+  // Print opens all first
+  const printBtn = document.getElementById('printBtn');
+  function openAll(){ sections.forEach(d=>d.open=true); }
+  printBtn.addEventListener('click',()=>{ openAll(); setTimeout(()=>window.print(), 80); });
+  window.onbeforeprint = openAll;
+
+  // Open external empathy mapping tool on B2 click (new tab)
+  const b2Summary = document.querySelector('details#b2 > summary');
+  if (b2Summary) {
+    b2Summary.addEventListener('click', () => {
+      const url = b2Summary.parentElement?.getAttribute('data-open-url');
+      if (!url) return;
+      if (!b2Summary.__clickedRecently) {
+        window.open(url, '_blank', 'noopener');
+        b2Summary.__clickedRecently = true;
+        setTimeout(()=> b2Summary.__clickedRecently = false, 800);
+      }
+    });
+  }
+
+  // Copy buttons
+  document.querySelectorAll('.copy button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const txt = btn.getAttribute('data-copy') || '';
+      if(!txt) return;
+      navigator.clipboard.writeText(txt).then(()=>{
+        btn.textContent = 'Copied!';
+        setTimeout(()=>btn.textContent='Copy',1200);
+      });
+    });
+  });
+
+  // Draft area actions
+  document.querySelectorAll('.saveDraft').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const ta = btn.closest('.card').querySelector('textarea');
+      if(!ta) return; navigator.clipboard.writeText(ta.value || '');
+      btn.textContent = 'Copied!'; setTimeout(()=>btn.textContent='Copy Draft',1200);
+    });
+  });
+  document.querySelectorAll('.clearDraft').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const ta = btn.closest('.card').querySelector('textarea');
+      if(ta) ta.value='';
+    });
+  });
+
+  // Inline empathy map data (from our earlier examples)
+  const EDATA = {
+    Thinks:["I don’t get this.","I’ll look stupid if I try.","What’s the point?"],
+    Feels:["Tired, embarrassed, overwhelmed.","Hopeless."],
+    Says:["This is boring.","I’m not doing it.","(Silence)"],
+    Does:["Hides face, avoids eye contact.","Shrugs shoulders."],
+    Needs:["A low‑stakes entry point (one easy question).","Reassurance that mistakes are okay.","Possibly a short break."]
+  };
+  const fill = (id,arr)=>{ const ul=document.getElementById(id); ul.innerHTML=''; arr.forEach(x=>{const li=document.createElement('li'); li.textContent=x; ul.appendChild(li);}); };
+  fill('eTh',EDATA.Thinks); fill('eFe',EDATA.Feels); fill('eSa',EDATA.Says); fill('eDo',EDATA.Does); fill('eNe',EDATA.Needs);
+</script>
+</body>
+</html>

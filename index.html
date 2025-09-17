@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lesson Organisation, Classroom Management, and Teacher Empowerment</title>
+<style>
+  /* Palette 3 — Chalk & Paper (fixed light theme) */
+  :root{
+    --paper:#FFFDF7;     /* page background */
+    --surface:#FFFFFF;   /* cards/panels */
+    --ink:#1F2937;       /* primary text */
+    --muted:#6B7280;     /* secondary text */
+    --border:#E7E5E4;    /* light borders */
+    --accent:#0EA5E9;    /* primary accent (Cerulean) */
+    --blue:#2563EB; --amber:#F59E0B; --violet:#7C3AED; --rose:#E11D48; --teal:#0D9488; --indigo:#4F46E5;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;line-height:1.5}
+  a{color:var(--accent)}
+
+  /* Header */
+  header{position:static;z-index:auto;background:linear-gradient(180deg,rgba(255,253,247,.95),rgba(255,253,247,.82));border-bottom:1px solid var(--border)}
+  .bar{max-width:1200px;margin:0 auto;padding:14px 12px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+  .title{font-weight:800;font-size:clamp(20px,2.6vw,30px)}
+  .subtitle{color:var(--muted);font-size:14px}
+
+  /* Tabs (Option A: top tabs) */
+  .tabs{max-width:1200px;margin:16px auto 0;padding:0 12px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .tab{appearance:none;border:1px solid var(--border);background:var(--surface);color:var(--ink);padding:12px 16px;border-radius:999px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;height:44px;line-height:1;box-shadow:none;outline:none;vertical-align:middle} .tab:focus,.tab:focus-visible,.tab:active{outline:none;box-shadow:none}
+  .tab[aria-selected="true"]{border-color:var(--accent);background:rgba(14,165,233,.10)}
+  .tab[aria-selected="true"][data-color="home"]{border-color:#9CA3AF;background:rgba(156,163,175,.12)}
+  .tab[aria-selected="true"][data-color="c1"]{border-color:var(--blue);background:rgba(37,99,235,.12)}
+  .tab[aria-selected="true"][data-color="c2"]{border-color:var(--amber);background:rgba(245,158,11,.14)}
+  .tab[aria-selected="true"][data-color="c3"]{border-color:var(--violet);background:rgba(124,58,237,.14)}
+  .tab[aria-selected="true"][data-color="c4"]{border-color:var(--rose);background:rgba(225,29,72,.12)}
+  .tab[aria-selected="true"][data-color="c5"]{border-color:var(--teal);background:rgba(13,148,136,.12)}
+  .tab[aria-selected="true"][data-color="c6"]{border-color:var(--indigo);background:rgba(79,70,229,.14)}
+  .tab[data-color="home"][aria-selected="true"]{outline-color:#9CA3AF}
+  .tab[data-color="c1"][aria-selected="true"]{outline-color:var(--blue)}
+  .tab[data-color="c2"][aria-selected="true"]{outline-color:var(--amber)}
+  .tab[data-color="c3"][aria-selected="true"]{outline-color:var(--violet)}
+  .tab[data-color="c4"][aria-selected="true"]{outline-color:var(--rose)}
+  .tab[data-color="c5"][aria-selected="true"]{outline-color:var(--teal)}
+  .tab[data-color="c6"][aria-selected="true"]{outline-color:var(--indigo)}
+
+  /* Panels */
+  main{max-width:1200px;margin:10px auto 0;padding:0 12px 160px}
+  .panel{display:none}
+  .panel.active{display:block}
+
+  /* Home panel cards */
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:14px}
+  .cta{display:inline-flex;align-items:center;gap:10px;text-decoration:none;border:1px solid var(--border);background:var(--surface);color:var(--ink);padding:10px 14px;border-radius:12px;font-weight:700}
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+  .muted{color:var(--muted)}
+  .qr{max-width:220px;border:1px solid var(--border);border-radius:12px;background:var(--surface);padding:10px}
+
+  /* Utilities row */
+  .utils{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;margin:8px 0}
+  .btn{border:1px solid var(--border);background:var(--surface);color:var(--ink);padding:8px 12px;border-radius:10px;cursor:pointer}
+
+  /* Status */
+  .status{font-size:14px;color:var(--muted)}
+
+  footer{position:fixed;left:0;right:0;bottom:0;background:transparent;color:var(--muted);text-align:center;padding:8px 12px;pointer-events:none}
+
+  @media print{@page{size:A4;margin:12mm} header,footer,.tabs,.utils{display:none} main{padding-bottom:0}}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <div>
+      <div class="title">Lesson Organisation, Classroom Management, and Teacher Empowerment</div>
+      <div class="subtitle">Multi‑tab seminar deck • Fixed light theme (Palette 3 — Chalk & Paper)</div>
+    </div>
+    <div class="utils">
+      <button id="printCurrent" class="btn" title="Print current tab">Print</button>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="Seminar sections">
+  <button class="tab" data-color="home" role="tab" id="tab-home" aria-controls="panel-home" aria-selected="true">Home</button>
+  <button class="tab" data-color="c1" role="tab" id="tab-c1" aria-controls="panel-c1" aria-selected="false">Category 1</button>
+  <button class="tab" data-color="c2" role="tab" id="tab-c2" aria-controls="panel-c2" aria-selected="false">Category 2</button>
+  <button class="tab" data-color="c3" role="tab" id="tab-c3" aria-controls="panel-c3" aria-selected="false">Category 3</button>
+  <button class="tab" data-color="c4" role="tab" id="tab-c4" aria-controls="panel-c4" aria-selected="false">Category 4</button>
+  <button class="tab" data-color="c5" role="tab" id="tab-c5" aria-controls="panel-c5" aria-selected="false">Category 5</button>
+  <button class="tab" data-color="c6" role="tab" id="tab-c6" aria-controls="panel-c6" aria-selected="false">Category 6</button>
+</nav>
+
+<main>
+  <!-- HOME -->
+  <section id="panel-home" class="panel active" role="tabpanel" aria-labelledby="tab-home">
+    <div class="card" style="margin-bottom:12px">
+      <h2>Welcome</h2>
+      <p class="muted"><em>Intro placeholder:</em> A concise overview of the seminar will appear here. You can replace this block later with your final introduction text.</p>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h3>Open Teacher Make‑Up</h3>
+        <p>Visit our companion resource. Opens in a new tab:</p>
+        <p><a class="cta" href="https://domvrosepimorfosi.github.io/teachermakeup/" target="_blank" rel="noopener">Open Teacher Make‑Up ↗</a></p>
+      </div>
+      <div class="card">
+        <h3>Scan the QR</h3>
+        <p class="muted">Participants can scan to go directly to Teacher Make‑Up.</p>
+        <a href="https://domvrosepimorfosi.github.io/teachermakeup/" target="_blank" rel="noopener" title="Open Teacher Make‑Up">
+          <img class="qr" src="teacher%20make%20up.png" alt="QR code: Teacher Make‑Up" />
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Quick navigation</h3>
+      <p>Jump straight into a section:</p>
+      <div class="tabs" aria-hidden="true" style="padding:0">
+        <button class="tab" data-color="c1" data-jump="#panel-c1">Category 1</button>
+        <button class="tab" data-color="c2" data-jump="#panel-c2">Category 2</button>
+        <button class="tab" data-color="c3" data-jump="#panel-c3">Category 3</button>
+        <button class="tab" data-color="c4" data-jump="#panel-c4">Category 4</button>
+        <button class="tab" data-color="c5" data-jump="#panel-c5">Category 5</button>
+        <button class="tab" data-color="c6" data-jump="#panel-c6">Category 6</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORY PANELS (empty at first; will be filled by loader) -->
+  <section id="panel-c1" class="panel" role="tabpanel" aria-labelledby="tab-c1">
+    <div class="card" style="padding:0">
+      <iframe id="frame-c1" src="category_1.html" title="Category 1" style="width:100%;height:1200px;border:0"></iframe>
+      <div class="status">If the section doesn't display, <a href="category_1.html" target="_blank" rel="noopener">open Category 1 in a new tab</a>.</div>
+    </div>
+  </section>
+  <section id="panel-c2" class="panel" role="tabpanel" aria-labelledby="tab-c2">
+    <div class="card" style="padding:0">
+      <iframe id="frame-c2" src="category_2.html" title="Category 2" style="width:100%;height:1200px;border:0"></iframe>
+      <div class="status">If the section doesn't display, <a href="category_2.html" target="_blank" rel="noopener">open Category 2 in a new tab</a>.</div>
+    </div>
+  </section>
+  <section id="panel-c3" class="panel" role="tabpanel" aria-labelledby="tab-c3">
+    <div class="card" style="padding:0">
+      <iframe id="frame-c3" src="category_3.html" title="Category 3" style="width:100%;height:1200px;border:0"></iframe>
+      <div class="status">If the section doesn't display, <a href="category_3.html" target="_blank" rel="noopener">open Category 3 in a new tab</a>.</div>
+    </div>
+  </section>
+  <section id="panel-c4" class="panel" role="tabpanel" aria-labelledby="tab-c4">
+    <div class="card" style="padding:0">
+      <iframe id="frame-c4" src="category_4.html" title="Category 4" style="width:100%;height:1200px;border:0"></iframe>
+      <div class="status">If the section doesn't display, <a href="category_4.html" target="_blank" rel="noopener">open Category 4 in a new tab</a>.</div>
+    </div>
+  </section>
+  <section id="panel-c5" class="panel" role="tabpanel" aria-labelledby="tab-c5">
+    <div class="card" style="padding:0">
+      <iframe id="frame-c5" src="categories_5_6.html" title="Category 5 & 6" style="width:100%;height:1200px;border:0"></iframe>
+      <div class="status">If the section doesn't display, <a href="categories_5_6.html" target="_blank" rel="noopener">open Categories 5–6 in a new tab</a>.</div>
+    </div>
+  </section>
+  <section id="panel-c6" class="panel" role="tabpanel" aria-labelledby="tab-c6">
+    <div class="card" style="padding:0">
+      <iframe id="frame-c6" src="categories_5_6.html" title="Category 6" style="width:100%;height:1200px;border:0"></iframe>
+      <div class="status">If the section doesn't display, <a href="categories_5_6.html" target="_blank" rel="noopener">open Category 6 in a new tab</a>.</div>
+    </div>
+  </section>
+</main>
+
+<footer>✨✍️ Created by Panagiotis Domvros, English and Drama Teacher, All Rights Reserved ✍️✨</footer>
+
+<script>
+  // Tabs
+  const tabs=[...document.querySelectorAll('.tab[role="tab"]')];
+  const panels=[...document.querySelectorAll('.panel')];
+  function activate(id){
+    tabs.forEach(t=>t.setAttribute('aria-selected', t.id===`tab-${id}`?'true':'false'));
+    panels.forEach(p=>p.classList.toggle('active', p.id===`panel-${id}`));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>activate(t.id.replace('tab-',''))));
+  document.querySelectorAll('[data-jump]').forEach(btn=>btn.addEventListener('click',()=>activate(btn.getAttribute('data-jump').replace('#panel-',''))));
+
+  // Print current tab (print iframe if present)
+  document.getElementById('printCurrent').addEventListener('click',()=>{
+    const active=document.querySelector('.panel.active');
+    const iframe=active?active.querySelector('iframe'):null;
+    if(iframe && iframe.contentWindow){ try{ iframe.contentWindow.focus(); iframe.contentWindow.print(); return; }catch(e){} }
+    window.print();
+  });
+</script>
+</body>
+</html>

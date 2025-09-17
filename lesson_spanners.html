@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lesson Plan + Spanners — Interactive</title>
+<style>
+  :root{ --bg:#0b1224; --panel:#0f172a; --card:#111827; --ink:#e5e7eb; --muted:#a1a7b5; --border:#1f2a44; --accent:#22d3ee }
+  body.light{ --bg:#ffffff; --panel:#f8fafc; --card:#ffffff; --ink:#0b1224; --muted:#475569; --border:#e5e7eb; --accent:#0ea5e9; background:#fff !important }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:linear-gradient(135deg,#0b1224 0%,#0f172a 60%,#0b1224 100%);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
+  header{position:sticky;top:0;z-index:40;background:var(--panel);border-bottom:1px solid var(--border);padding:10px 12px}
+  .bar{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
+  .title{font-weight:800;font-size:clamp(18px,2.6vw,28px)}
+  .controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  button,input[type="range"]{background:var(--card);color:var(--ink);border:1px solid var(--border);border-radius:12px;padding:8px 10px;font-size:14px}
+  main{max-width:1100px;margin:12px auto 0;padding:0 12px 180px}
+
+  /* Tabs */
+  .tabs{display:flex;gap:8px;margin-bottom:12px}
+  .tab-btn{background:var(--card);border:1px solid var(--border);color:var(--ink);padding:10px 14px;border-radius:12px;cursor:pointer}
+  .tab-btn[aria-selected="true"]{outline:2px solid var(--accent)}
+  .tab-panel{display:none}
+  .tab-panel.active{display:block}
+
+  /* Accordions */
+  details{background:linear-gradient(180deg,rgba(17,24,39,.92),rgba(11,18,36,.98));border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:10px}
+  body.light details{background:#fff}
+  summary{list-style:none;cursor:pointer;padding:12px 14px;display:flex;align-items:center;gap:10px;color:#c7d2fe;font-weight:700}
+  body.light summary{color:#1e293b}
+  summary::-webkit-details-marker{display:none}
+  .content{padding:0 14px 14px}
+  .card{background:rgba(2,6,23,.35);border:1px solid var(--border);border-radius:14px;padding:12px}
+  body.light .card{background:#fff}
+  h3{margin:8px 0 6px}
+  h4{margin:10px 0 6px;color:#a5b4fc}
+  body.light h4{color:#374151}
+  ul{margin:6px 0 0 18px}
+  .pill{font-size:12px;border:1px solid var(--border);background:var(--card);color:var(--ink);padding:2px 8px;border-radius:999px}
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+  blockquote{margin:8px 0 0;padding:8px 10px;border-left:4px solid var(--accent);background:rgba(34,211,238,.08);border-radius:8px}
+  footer{position:fixed;left:0;right:0;bottom:0;background:transparent;color:var(--muted);text-align:center;padding:8px 12px;pointer-events:none}
+
+  /* Print */
+  @media print{@page{size:A4;margin:12mm} body{background:#fff;color:#000} header,footer{display:none} details{background:#fff;border-color:#bbb} summary{color:#000} .content{color:#000}}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <div class="title">Sample EFL Lesson + Spanners (B1)</div>
+    <div class="controls">
+      <button id="themeToggle" title="Toggle light/dark">Toggle Light/Dark</button>
+      <button id="expandAll">Expand All</button>
+      <button id="collapseAll">Collapse All</button>
+      <button id="printBtn">Print</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <nav class="tabs" role="tablist" aria-label="Lesson and Spanners">
+    <button class="tab-btn" role="tab" id="tab1" aria-controls="panel1" aria-selected="true">Lesson Plan</button>
+    <button class="tab-btn" role="tab" id="tab2" aria-controls="panel2" aria-selected="false">Spanners → Pivots</button>
+  </nav>
+
+  <!-- TAB 1: LESSON PLAN -->
+  <section id="panel1" class="tab-panel active" role="tabpanel" aria-labelledby="tab1">
+    <details open>
+      <summary>Overview</summary>
+      <div class="content">
+        <div class="card">
+          <p><strong>Sample EFL Lesson Plan (B1 level, 30′)</strong></p>
+          <p><strong>Topic:</strong> Descriptive Adjectives for Places and Objects</p>
+          <p><strong>Objective:</strong> Students will be able to produce descriptive sentences with 2–3 adjectives, using digital collaboration tools.</p>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>1) Warm‑up (5′)</summary>
+      <div class="content">
+        <div class="card">
+          <p><strong>Tool:</strong> Padlet / “Softboard” (digital sticky notes).</p>
+          <ul>
+            <li><strong>Task:</strong> Prompt = “Write one adjective to describe your weekend.”</li>
+            <li>Students post 1 word each; teacher clusters them live (e.g., feelings, size, colours).</li>
+            <li><em>Quick oral recap:</em> “We already have lots of adjectives. Today we’ll use them to make our descriptions more vivid.”</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>2) Presentation (5′)</summary>
+      <div class="content">
+        <div class="card">
+          <p><strong>Tool:</strong> Google Slides / Canva (projected).</p>
+          <ul>
+            <li>Images shown: e.g., a busy street, a calm beach, an old castle.</li>
+            <li>Teacher elicits adjectives via Padlet live‑posts.</li>
+            <li>Teacher adds 2–3 higher‑level adjectives into the Padlet board for enrichment.</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>3) Guided Practice (10′)</summary>
+      <div class="content">
+        <div class="card">
+          <p><strong>Tool:</strong> Padlet columns (one column per picture).</p>
+          <ul>
+            <li><strong>Task:</strong> Students work in pairs. Each pair posts 2 descriptive sentences in the correct column.</li>
+            <li><em>Example:</em> “The castle is ancient and mysterious.”</li>
+            <li><strong>Teacher role:</strong> Likes and stars strong examples, highlights errors, models corrections.</li>
+            <li><strong>Check for understanding:</strong> “Everyone add a comment on one peer’s post suggesting a stronger adjective.”</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>4) Independent Practice (7′)</summary>
+      <div class="content">
+        <div class="card">
+          <p><strong>Tool:</strong> Quizlet Live / Blooket (adjective sets prepared).</p>
+          <ul>
+            <li>Students play a quick round, matching adjectives to definitions or intensities (big → enormous; tired → exhausted).</li>
+            <li><em>Extension option:</em> Fast finishers expand a sentence on Padlet using one of the Quizlet words.</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>5) Reflection & Closing (3′)</summary>
+      <div class="content">
+        <div class="card">
+          <p><strong>Tool:</strong> Padlet final column titled “Exit Ticket.”</p>
+          <ul>
+            <li>Students post one new adjective they will use in their next piece of writing.</li>
+            <li><em>Teacher summarises:</em> “You’ve shown you can use adjectives not just to label, but to bring your descriptions alive.”</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- TAB 2: SPANNERS -->
+  <section id="panel2" class="tab-panel" role="tabpanel" aria-labelledby="tab2">
+
+    <details open>
+      <summary>How this tab works</summary>
+      <div class="content">
+        <div class="card">Click any <strong>Spanner</strong> to reveal the <strong>Pivot (Plan B)</strong> and the suggested <strong>What to say</strong> line.</div>
+      </div>
+    </details>
+
+    <h3>Tech Issues</h3>
+
+    <details>
+      <summary>Wi‑Fi goes down — no online tools</summary>
+      <div class="content">
+        <div class="card">
+          <h4>Pivot (Plan B)</h4>
+          <ul>
+            <li>Switch to low‑tech fallback: sticky notes on the wall instead of Padlet.</li>
+            <li>Draw quick sketches (castle, street, beach) on board or show printed pictures.</li>
+            <li>Adjective brainstorm → students cluster words by category on the wall.</li>
+          </ul>
+          <h4>What to say</h4>
+          <blockquote>“Looks like the Wi‑Fi is down. No problem—we’re going analogue. Grab 3 sticky notes. Write one adjective per note. Put them on the wall under the correct picture. Let’s see how many we can collect in 2 minutes.”</blockquote>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Projector fails — can’t show Google Slides/Canva</summary>
+      <div class="content">
+        <div class="card">
+          <h4>Pivot (Plan B)</h4>
+          <ul>
+            <li>Print 3–4 images beforehand as a backup.</li>
+            <li>Hand them to groups; each group generates adjectives on paper.</li>
+            <li>If no prints, describe the scene orally: “Imagine a castle on a cliff at sunset. Give me three adjectives.”</li>
+          </ul>
+          <h4>What to say</h4>
+          <blockquote>“We don’t have visuals, so we’ll use words to paint pictures. Imagine: an old castle on a cliff at sunset. Call out adjectives that bring it alive.”</blockquote>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Padlet freezes — posts don’t appear</summary>
+      <div class="content">
+        <div class="card">
+          <h4>Pivot (Plan B)</h4>
+          <ul>
+            <li>Switch to a shared Google Doc (if Wi‑Fi works).</li>
+            <li>Or each pair writes sentences on paper, then one representative posts them aloud.</li>
+            <li>Teacher writes sentences on the board in columns.</li>
+          </ul>
+          <h4>What to say</h4>
+          <blockquote>“Padlet isn’t cooperating. Let’s move to paper and board. Write 2 sentences with adjectives. I’ll collect them and group them by picture.”</blockquote>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Quizlet Live server crash — can’t start the game</summary>
+      <div class="content">
+        <div class="card">
+          <h4>Pivot (Plan B)</h4>
+          <ul>
+            <li>Teacher‑led quick‑fire synonyms: “Say a stronger word than big.”</li>
+            <li>Pairs do “synonym ladder”: tired → sleepy → exhausted → shattered.</li>
+            <li>If possible, use a pre‑printed matching exercise.</li>
+          </ul>
+          <h4>What to say</h4>
+          <blockquote>“Quizlet’s down. Let’s do our own live game—synonym ladder. Start with happy; what’s stronger? Joyful? Ecstatic? Keep climbing.”</blockquote>
+        </div>
+      </div>
+    </details>
+
+    <h3>Classroom / Logistics Issues</h3>
+
+    <details>
+      <summary>Half the students finish the Padlet task in 3′ while others are stuck</summary>
+      <div class="content">
+        <div class="card">
+          <h4>Pivot (Plan B)</h4>
+          <ul>
+            <li>Fast finishers: write one upgraded sentence using a precise adjective (“big” → “enormous”).</li>
+            <li>Or comment on 2 peers’ posts with suggestions.</li>
+          </ul>
+          <h4>What to say</h4>
+          <blockquote>“If you’re done, add one ‘upgrade adjective’ to your sentence. Or leave a comment on 2 peers’ posts to suggest stronger words.”</blockquote>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Two students post silly/inappropriate adjectives on Padlet</summary>
+      <div class="content">
+        <div class="card">
+          <h4>Pivot (Plan B)</h4>
+          <ul>
+            <li>Pause moment: “Stop. Reset. Begin again.”</li>
+            <li>Quietly remind: “Padlet is a shared space; posts must be usable in class. Let’s re‑enter.”</li>
+            <li>If repeated, assign those students to scribe others’ suggestions on paper.</li>
+          </ul>
+          <h4>What to say</h4>
+          <blockquote>“This space is public and collaborative. Our goal is real adjectives we can reuse. Let’s reset and try again.”</blockquote>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>A group refuses to engage with Quizlet Live</summary>
+      <div class="content">
+        <div class="card">
+          <h4>Pivot (Plan B)</h4>
+          <ul>
+            <li>Give them a mini challenge: “You’ve got 3 minutes to find 5 synonyms for nice without the game.”</li>
+            <li>Let them be “judges”: they check other teams’ adjectives for accuracy.</li>
+          </ul>
+          <h4>What to say</h4>
+          <blockquote>“If Quizlet’s not your thing, you’re now the judges. Check that each team uses their adjectives correctly in sentences.”</blockquote>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Noise levels rise — students distracted</summary>
+      <div class="content">
+        <div class="card">
+          <h4>Pivot (Plan B)</h4>
+          <ul>
+            <li>Use attention reset: bounce a foam ball or clap a rhythm; students repeat.</li>
+            <li>Silent 30‑second reset: “We pause. We reset posture. We begin again.”</li>
+          </ul>
+          <h4>What to say</h4>
+          <blockquote>“Pause moment. Everyone take 10 seconds to reset. Sit tall, look at me. We begin again.”</blockquote>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Devices run out of battery / 3 students have no phones</summary>
+      <div class="content">
+        <div class="card">
+          <h4>Pivot (Plan B)</h4>
+          <ul>
+            <li>Device‑less students join a peer’s group as Scribe/Reader.</li>
+            <li>Or teacher appoints them as Board Writers, transferring group answers onto the board.</li>
+          </ul>
+          <h4>What to say</h4>
+          <blockquote>“No device? Perfect—you’re the scribe. Your job is to collect ideas and post them for your group.”</blockquote>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Teacher’s own laptop dies mid‑lesson</summary>
+      <div class="content">
+        <div class="card">
+          <h4>Pivot (Plan B)</h4>
+          <ul>
+            <li>Use student devices to project (if possible).</li>
+            <li>If not, switch to board‑led activity: teacher calls out objects/places; students supply adjectives orally or on paper.</li>
+          </ul>
+          <h4>What to say</h4>
+          <blockquote>“My laptop’s taking a break. Let’s see how many adjectives we can generate together on the board—faster than tech!”</blockquote>
+        </div>
+      </div>
+    </details>
+
+    <h3>Timing / Flow Issues</h3>
+
+    <details>
+      <summary>An unexpected announcement cuts 7 minutes</summary>
+      <div class="content">
+        <div class="card">
+          <h4>Pivot (Plan B)</h4>
+          <ul>
+            <li>Drop Guided Practice share‑out OR skip Quizlet round.</li>
+            <li>Go straight to Reflection with Padlet Exit Ticket.</li>
+          </ul>
+          <h4>What to say</h4>
+          <blockquote>“We’ve lost 7 minutes—so we’ll cut Quizlet and go straight to the Exit Ticket.”</blockquote>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Students take much longer than expected to log into Padlet</summary>
+      <div class="content">
+        <div class="card">
+          <h4>Pivot (Plan B)</h4>
+          <ul>
+            <li>Switch to oral brainstorm → teacher writes on board.</li>
+            <li>Let students log in quietly while others share aloud.</li>
+          </ul>
+          <h4>What to say</h4>
+          <blockquote>“While you log in, shout out one adjective. I’ll collect them on the board. If you can’t connect, write them on paper.”</blockquote>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Summary Table (Quick Reference)</summary>
+      <div class="content">
+        <div class="card">
+          <div class="grid2">
+            <div class="card"><strong>Wi‑Fi down</strong><br>Sticky notes on wall; board sketches</div>
+            <div class="card"><strong>Projector fails</strong><br>Printouts; oral description</div>
+            <div class="card"><strong>Padlet freezes</strong><br>Google Doc / paper / board</div>
+            <div class="card"><strong>Quizlet crash</strong><br>Synonym ladders; quick‑fire oral</div>
+            <div class="card"><strong>Half finish early</strong><br>Upgrade tasks; peer comments</div>
+            <div class="card"><strong>Silly Padlet posts</strong><br>Pause/reset; scribe role</div>
+            <div class="card"><strong>Quizlet refusal</strong><br>Judge role; mini challenge</div>
+            <div class="card"><strong>Noise escalation</strong><br>Reset; pause</div>
+            <div class="card"><strong>Dead devices</strong><br>Scribe; board writer</div>
+            <div class="card"><strong>Laptop dies</strong><br>Student device or board activity</div>
+            <div class="card"><strong>Time lost</strong><br>Skip activity; keep Exit Ticket</div>
+            <div class="card"><strong>Slow login</strong><br>Oral brainstorm while waiting</div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+  </section>
+</main>
+
+<footer>✨✍️ Created by Panagiotis Domvros, English and Drama Teacher, All Rights Reserved ✍️✨</footer>
+
+<script>
+  // Theme toggle
+  const themeToggle=document.getElementById('themeToggle');
+  const saved=localStorage.getItem('twotabtheme')||'dark';
+  if(saved==='light') document.body.classList.add('light');
+  themeToggle.addEventListener('click',()=>{
+    document.body.classList.toggle('light');
+    localStorage.setItem('twotabtheme',document.body.classList.contains('light')?'light':'dark');
+  });
+
+  // Tabs
+  const tabs=[...document.querySelectorAll('.tab-btn')];
+  const panels=[...document.querySelectorAll('.tab-panel')];
+  tabs.forEach(btn=>btn.addEventListener('click',()=>{
+    tabs.forEach(b=>b.setAttribute('aria-selected','false'));
+    panels.forEach(p=>p.classList.remove('active'));
+    btn.setAttribute('aria-selected','true');
+    document.getElementById(btn.getAttribute('aria-controls')).classList.add('active');
+  }));
+
+  // Expand/Collapse all (works on current tab)
+  function currentDetails(){ const active=document.querySelector('.tab-panel.active'); return [...active.querySelectorAll('details')]; }
+  document.getElementById('expandAll').addEventListener('click',()=>currentDetails().forEach(d=>d.open=true));
+  document.getElementById('collapseAll').addEventListener('click',()=>currentDetails().forEach(d=>d.open=false));
+
+  // Print (opens all accordions in current tab)
+  const printBtn=document.getElementById('printBtn');
+  function openAll(){ currentDetails().forEach(d=>d.open=true); }
+  printBtn.addEventListener('click',()=>{ openAll(); setTimeout(()=>window.print(),80); });
+  window.onbeforeprint = openAll;
+</script>
+</body>
+</html>
