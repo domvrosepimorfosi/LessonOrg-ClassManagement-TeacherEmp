@@ -52,6 +52,8 @@
 
   /* Home panel cards */
   .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:14px}
+  details.card summary {list-style: none; cursor: pointer;}
+  details.card summary::-webkit-details-marker {display: none;}
   .cta{display:inline-flex;align-items:center;gap:10px;text-decoration:none;border:1px solid var(--border);background:var(--surface);color:var(--ink);padding:10px 14px;border-radius:12px;font-weight:700}
   .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
   .muted{color:var(--muted)}
@@ -74,7 +76,7 @@
   <div class="bar">
     <div>
       <div class="title">Lesson Organisation, Classroom Management, and Teacher Empowerment</div>
-      <div class="subtitle">Multi‑tab seminar deck • Fixed light theme (Palette 3 — Chalk & Paper)</div>
+      <div class="subtitle"><strong><i>Panagiotis Domvros, English and Drama Teacher, All Rights Reserved</i></strong></div>
     </div>
     <div class="utils">
       <button id="printCurrent" class="btn" title="Print current tab">Print</button>
@@ -93,18 +95,35 @@
 </nav>
 
 <main>
-  <!-- HOME -->
   <section id="panel-home" class="panel active" role="tabpanel" aria-labelledby="tab-home">
-    <div class="card" style="margin-bottom:12px">
-      <h2>Welcome</h2>
-      <p class="muted"><em>Intro placeholder:</em> A concise overview of the seminar will appear here. You can replace this block later with your final introduction text.</p>
-    </div>
+    <details class="card" style="margin-bottom:12px">
+      <summary style="font-size: 1.5em; font-weight: 700; line-height: 1.2; margin-bottom: 10px;">Welcome</summary>
+      <div style="text-align: justify;">
+        <p>This seminar, created by English and Drama Teacher Panagiotis Domvros, offers a comprehensive professional development program for educators. The material is structured into interactive modules covering core areas of teaching, from classroom management to digital integration.</p>
+        
+        <h4>Core Pedagogical Skills</h4>
+        <p>The seminar begins with lesson organization and planning, framing it as a "game plan" that requires flexibility and creativity. It emphasizes fostering student motivation through varied lesson design and includes icebreakers and reflective activities like the "Two-Word Check-In" and "The Quiet Impact" to build a positive classroom environment.</p>
+        
+        <h4>Classroom and Stakeholder Management</h4>
+        <p>A significant portion is dedicated to providing practical, script-based strategies for managing challenging interactions.</p>
+        <ul style="padding-left: 20px;">
+          <li><strong>"Difficult" Students:</strong> This module focuses on proactive and empathetic approaches. It includes activities for co-creating classroom norms ("Adult Script"), understanding student behavior ("Empathy Mapping"), and de-escalating conflict using "Water or Gasoline" role-play scenarios. The goal is to de-escalate first and problem-solve second.</li>
+          <li><strong>"Difficult" Parents:</strong> This section equips teachers with communication frameworks and templates for phone calls, emails, and meetings. It provides specific lines in both English and Greek to set boundaries, manage different parent personas (e.g., angry, anxious), and ensure communication is productive and GDPR-compliant.</li>
+        </ul>
+        
+        <h4>Innovative Teaching Techniques</h4>
+        <p>The seminar strongly advocates for using theatrical techniques to enhance learning in mixed-ability classrooms. It provides a rich bank of drama activities suitable for all age groups, such as "Conscience Alley," "Hot Seat," and "Wink Murder," to dissolve barriers and turn communication into a safe, shared experiment.</p>
+        
+        <h4>Digital Integration</h4>
+        <p>Finally, the program addresses modern teaching needs by covering digital tools and hacks. It aims to help teachers combine various applications to optimize preparation and teaching, presenting links to resources that can facilitate their work.</p>
+      </div>
+    </details>
 
     <div class="grid2">
       <div class="card">
-        <h3>Open Teacher Make‑Up</h3>
-        <p>Visit our companion resource. Opens in a new tab:</p>
-        <p><a class="cta" href="https://domvrosepimorfosi.github.io/teachermakeup/" target="_blank" rel="noopener">Open Teacher Make‑Up ↗</a></p>
+        <h3>Teacher Make‑Up</h3>
+        <p>What Makes an Excellent Teacher?</p>
+        <p><a class="cta" href="https://domvrosepimorfosi.github.io/teachermakeup/" target="_blank" rel="noopener">Teacher Make‑Up ↗</a></p>
       </div>
       <div class="card">
         <h3>Scan the QR</h3>
@@ -129,7 +148,6 @@
     </div>
   </section>
 
-  <!-- CATEGORY PANELS (empty at first; will be filled by loader) -->
   <section id="panel-c1" class="panel" role="tabpanel" aria-labelledby="tab-c1">
     <div class="card" style="padding:0">
       <iframe id="frame-c1" src="category_1.html" title="Category 1" style="width:100%;height:1200px;border:0"></iframe>
