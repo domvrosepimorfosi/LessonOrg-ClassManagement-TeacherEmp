@@ -88,10 +88,10 @@
   <button class="tab" data-color="home" role="tab" id="tab-home" aria-controls="panel-home" aria-selected="true">Home</button>
   <button class="tab" data-color="c1" role="tab" id="tab-c1" aria-controls="panel-c1" aria-selected="false">Category 1</button>
   <button class="tab" data-color="c2" role="tab" id="tab-c2" aria-controls="panel-c2" aria-selected="false">Category 2</button>
+  <button class="tab" data-color="c2" role="tab" id="tab-resources" aria-controls="panel-resources" aria-selected="false">Resources</button>
   <button class="tab" data-color="c3" role="tab" id="tab-c3" aria-controls="panel-c3" aria-selected="false">Category 3</button>
   <button class="tab" data-color="c4" role="tab" id="tab-c4" aria-controls="panel-c4" aria-selected="false">Category 4</button>
-  <button class="tab" data-color="c5" role="tab" id="tab-c5" aria-controls="panel-c5" aria-selected="false">Category 5</button>
-  <button class="tab" data-color="c6" role="tab" id="tab-c6" aria-controls="panel-c6" aria-selected="false">Category 6</button>
+  <button class="tab" data-color="c5" role="tab" id="tab-c5" aria-controls="panel-c5" aria-selected="false">Categories 5 &amp; 6</button>
 </nav>
 
 <main>
@@ -147,9 +147,10 @@
       <div class="tabs" aria-hidden="true" style="padding:0">
         <button class="tab" data-color="c1" data-jump="#panel-c1">Category 1</button>
         <button class="tab" data-color="c2" data-jump="#panel-c2">Category 2</button>
+        <button class="tab" data-color="c2" data-jump="#panel-resources">Resources</button>
         <button class="tab" data-color="c3" data-jump="#panel-c3">Category 3</button>
         <button class="tab" data-color="c4" data-jump="#panel-c4">Category 4</button>
-        <button class="tab" data-color="c5" data-jump="#panel-c5">Category 5</button>
+        <button class="tab" data-color="c5" data-jump="#panel-c5">Categories 5 & 6</button>
         <button class="tab" data-color="c6" data-jump="#panel-c6">Category 6</button>
       </div>
     </div>
@@ -167,6 +168,36 @@
       <div class="status">If the section doesn't display, <a href="category_2.html" target="_blank" rel="noopener">open Category 2 in a new tab</a>.</div>
     </div>
   </section>
+
+  <section id="panel-resources" class="panel" role="tabpanel" aria-labelledby="tab-resources">
+    <div class="card">
+      <h3>Resources</h3>
+    <details>
+      <summary>🧑‍🏫 Classroom Management</summary>
+      <ul>
+        <li><a href="https://pa-domvros.github.io/ClassroomChampions/" target="_blank" rel="noopener">Classroom Champions (Beginners)</a></li>
+        <li><a href="https://pa-domvros.github.io/TeacherSpeak/" target="_blank" rel="noopener">TeacherSpeak: Effective Teacher-Student Communication</a></li>
+        <li><a href="https://pa-domvros.github.io/break-boredom/" target="_blank" rel="noopener">Break the Boredom in the Classroom</a></li>
+        <li><a href="https://pa-domvros.github.io/proactive1/" target="_blank" rel="noopener">Proactive Classroom Management Strategies</a></li>
+        <li><a href="https://pa-domvros.github.io/Teacher-SwissKnife/" target="_blank" rel="noopener">Teacher's Swiss Army Knife</a></li>
+        <li><a href="https://pa-domvros.github.io/ClassX/" target="_blank" rel="noopener">Class X Feed (Bilingual)</a></li>
+       <li><a href="https://pa-domvros.github.io/HotPotato/" target="_blank" rel="noopener">Hot Potato - Stuedent Task Organizer (How Executive Functions Shape Your Success)</a></li>
+
+      </ul>
+    </details>
+
+    <details>
+      <summary>🎯 Special Focus</summary>
+      <ul>
+        <li><a href="https://pdomvros.github.io/bullying-eng/" target="_blank" rel="noopener">Bullying</a></li>
+        <li><a href="https://pa-domvros.github.io/abusive-language//" target="_blank" rel="noopener">Abusive Language</a></li>
+        <li><a href="https://pa-domvros.github.io/WhatWhyHow/" target="_blank" rel="noopener">What? Why? How? - The Reflection Game</a></li>
+        <li><a href="https://pa-domvros.github.io/Control51/" target="_blank" rel="noopener">Things I can Control</a></li>
+        <li><a href="https://pa-domvros.github.io/NameIt/" target="_blank" rel="noopener">Name It, Don’t Flame It </a></li>
+      </ul>
+    </details>
+    </div>
+  </section>
   <section id="panel-c3" class="panel" role="tabpanel" aria-labelledby="tab-c3">
     <div class="card" style="padding:0">
       <iframe id="frame-c3" src="category_3.html" title="Category 3" style="width:100%;height:1200px;border:0"></iframe>
@@ -181,14 +212,8 @@
   </section>
   <section id="panel-c5" class="panel" role="tabpanel" aria-labelledby="tab-c5">
     <div class="card" style="padding:0">
-      <iframe id="frame-c5" src="categories_5_6.html" title="Category 5 & 6" style="width:100%;height:1200px;border:0"></iframe>
-      <div class="status">If the section doesn't display, <a href="categories_5_6.html" target="_blank" rel="noopener">open Categories 5–6 in a new tab</a>.</div>
-    </div>
-  </section>
-  <section id="panel-c6" class="panel" role="tabpanel" aria-labelledby="tab-c6">
-    <div class="card" style="padding:0">
-      <iframe id="frame-c6" src="categories_5_6.html" title="Category 6" style="width:100%;height:1200px;border:0"></iframe>
-      <div class="status">If the section doesn't display, <a href="categories_5_6.html" target="_blank" rel="noopener">open Category 6 in a new tab</a>.</div>
+      <iframe id="frame-c5" src="categories_5_6.html" title="Categories 5 & 6" style="width:100%;height:1200px;border:0"></iframe>
+      <div class="status">If the section doesn't display, <a href="categories_5_6.html" target="_blank" rel="noopener">open Categories 5 & 6 in a new tab</a>.</div>
     </div>
   </section>
 </main>
