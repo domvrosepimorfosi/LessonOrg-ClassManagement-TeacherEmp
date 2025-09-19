@@ -54,7 +54,7 @@
 
   textarea.draft{width:100%;min-height:120px;padding:10px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--ink)}
 
-  footer{position:fixed;left:0;right:0;bottom:0;background:transparent;color:var(--muted);text-align:center;padding:8px 12px}
+  footer{position:static;background:transparent;color:var(--muted);text-align:center;padding:16px 12px 24px;margin-top:24px}
 
   /* Print */
   @media print{
@@ -65,6 +65,8 @@
     summary{color:#000}
     .content{color:#000}
   }
+.btn{display:inline-block;text-decoration:none;border:1px solid var(--border);background:var(--card);color:var(--ink);padding:8px 12px;border-radius:12px}
+  .btn:hover{border-color:#334155}
 </style>
 </head>
 <body>
@@ -149,6 +151,30 @@
         </div>
       </div>
     </details>
+    <details>
+      <summary><span class="chev"></span>Infographic &amp; Article — Roots of Teacher Burnout</summary>
+      <div class="content">
+        <div class="card">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;align-items:start">
+            <div>
+              <img src="Roots%20of%20Teacher%20Burnout.png" alt="Infographic showing the roots of teacher burnout and the shift from punishment to empathy" style="width:100%;height:auto;border-radius:12px;border:1px solid var(--border)"/>
+            </div>
+            <div>
+              <h4>Summary</h4>
+              <p>This piece explains the current wave of teacher burnout as a downstream effect of a wider pupil mental-health crisis. What looks like “misbehaviour” is often <em>dysregulation</em>—a nervous system under stress trying to cope. Escalation and punishment can intensify the cycle; connection helps to break it.</p>
+              <ul>
+                <li><strong>From control to curiosity:</strong> Ask what need the behaviour is signalling (safety, predictability, belonging, competence).</li>
+                <li><strong>Regulate → Relate → Reason:</strong> Help pupils calm first, connect second, then return to learning and problem-solving.</li>
+                <li><strong>Classroom moves:</strong> predictable routines, calm tone, brief choices, short breaks, and quick wins that restore success.</li>
+                <li><strong>Staff wellbeing:</strong> when teachers shift from a punishment mindset to empathy and connection, stress drops and learning improves.</li>
+              </ul>
+              <p><a class="btn" href="https://starr.org/2023/dysregulation-and-behavior-the-roots-of-teacher-burnout/?fbclid=IwdGRzaAM5XP9jbGNrAzlc0GV4dG4DYWVtAjExAAEeSIXRlG5P6Dxvym5VxnyuRpuGtXj2kiVTBG80vP1YzDJJFIC-cXAA9J-OQdk_aem_pioZHw-JyCRE88h80csV9g#:~:text=Teacher%20Burnout%20Epidemic&text=The%20most%20common%20unwanted%20student,leave%20the%20classroom%20and%20defiance" target="_blank" rel="noopener">Read the Article ↗</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+
 
     <details>
       <summary><span class="chev"></span>Activity B3 — Water or Gasoline? Role‑Play</summary>
@@ -322,12 +348,15 @@
       </div>
     </details>
 
-    <details>
-      <summary><span class="chev"></span>Activity B5 — The 5 Metacognition Questions</summary>
+
+
+
+    </details><details>
+      <summary><span class="chev"></span>Activity B5 — The 5 Metacognition Questions</summary open>
       <div class="content">
-        <div class="row"><div class="pill">Objective</div><div>Move from impulse to reflection (B1 English).</div></div>
+        <div class="row"><div class="pill">Objective</div><div>Move from impulse to reflection.</div></div>
         <div class="card">
-          <h4>Core 5 (B1 wording)</h4>
+          <h4>Core 5 </h4>
           <ul>
             <li>Why did you think this was okay?</li>
             <li>Who in your life thinks this is okay?</li>
@@ -353,7 +382,90 @@
           <div class="copy"><span class="muted">Copy worksheet text</span><button data-copy="Name / Date:____ | What happened:____ | Feeling: angry/sad/bored/stressed/worried/tired | Who was affected & how:____ | Repair today:____ | If–Then: If I____ then I will____ | Check time: end of lesson / tomorrow">Copy</button></div>
         </div>
       </div>
+    
+        <div class="card">
+          <details open>
+            <summary>Full Prompt Bank </summary>
+            <div class="card">
+              <h4>A) Core 5</h4>
+              <ul>
+                <li>Why did you think this was okay?</li>
+                <li>Who in your life thinks this is okay?</li>
+                <li>Where did you learn this?</li>
+                <li>How can you help fix this now?</li>
+                <li>What will you do next time?</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h4>B) Simple “Pause &amp; Feelings”</h4>
+              <ul>
+                <li>Are you ready to think, or do you need 1 minute?</li>
+                <li>What happened just before this?</li>
+                <li>How did you feel? (angry / sad / bored / stressed / worried / tired)</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h4>C) Ownership</h4>
+              <ul>
+                <li>Which part is your responsibility?</li>
+                <li>What was your choice in that moment?</li>
+                <li>If we watch a replay, where should you pause?</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h4>D) Rules &amp; Values</h4>
+              <ul>
+                <li>Which class rule did this break?</li>
+                <li>Does this match the person you want to be in class?</li>
+                <li>What does “respect” look like here? (one example)</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h4>E) Impact</h4>
+              <ul>
+                <li>Who was affected? How?</li>
+                <li>What changed in the room because of this?</li>
+                <li>If you were them, how would you feel?</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h4>F) Options</h4>
+              <ul>
+                <li>Tell me two other choices you could make next time.</li>
+                <li>What could you say to yourself to stay calm?</li>
+                <li>Which helps you more: move seat / ask for help / take 1 minute / start with an easy step?</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h4>G) Repair (today)</h4>
+              <ul>
+                <li>What is one repair you can do today? (apology / help / redo work)</li>
+                <li>How will we know the repair worked?</li>
+                <li>Please write one sentence you will say or do.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h4>H) Future Plan (If–Then)</h4>
+              <ul>
+                <li>If I feel ____ , then I will ____ .</li>
+                <li>Next time I notice ____ , my first step is ____ .</li>
+                <li>What do you want me (the teacher) to do to help you keep this plan?</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h4>I) Quick close</h4>
+              <ul>
+                <li>Say your plan back to me.</li>
+                <li>When should we check—end of lesson or tomorrow?</li>
+                <li>Thank you. Let’s join the lesson again.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+
     </details>
+
+
 
     <details>
       <summary><span class="chev"></span>Activity B6 — The 30‑Second Rule Sort</summary>
@@ -480,6 +592,10 @@
   };
   const fill = (id,arr)=>{ const ul=document.getElementById(id); ul.innerHTML=''; arr.forEach(x=>{const li=document.createElement('li'); li.textContent=x; ul.appendChild(li);}); };
   fill('eTh',EDATA.Thinks); fill('eFe',EDATA.Feels); fill('eSa',EDATA.Says); fill('eDo',EDATA.Does); fill('eNe',EDATA.Needs);
+
+  // Ensure B5 is open on load
+  const b5 = document.getElementById('b5');
+  if (b5) { b5.open = true; }
 </script>
 </body>
 </html>
